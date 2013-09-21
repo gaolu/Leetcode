@@ -12,8 +12,10 @@ public:
     }
     
     void partitionIP(string s, int start, int depth, string IP, vector<string> &IPs){
-        if(s.size() - start > 3 * (4 - depth))
+	// return if the # of digits is bigger than the # of available slots
+	 if(s.size() - start > 3 * (4 - depth))
             return;
+	// return if the # of slots are not enough for the current # of digits
         if(s.size() - start < 4 - depth)
             return;
         
