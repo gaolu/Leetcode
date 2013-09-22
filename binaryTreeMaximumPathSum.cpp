@@ -28,6 +28,8 @@ public:
         helper(root->left, leftSum, maxSum);
         helper(root->right, rightSum, maxSum);
         currentSum = max(root->val, max(root->val + leftSum, root->val + rightSum));
+        // we have already considered the situation where only one node in the path
+        // as we update maxSum evern for the leaf nodes
         maxSum = max(maxSum, max(currentSum, root->val + leftSum + rightSum));
     }
 };
